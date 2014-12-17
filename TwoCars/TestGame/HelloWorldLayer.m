@@ -391,16 +391,16 @@
         [[SimpleAudioEngine sharedEngine] playEffect:@"colide.caf"];
     
     if (sp.tag<5) {
-        CCParticleSystemQuad *particle = [CCParticleSystemQuad particleWithFile:@"particle-car-red-explode.plist"]; //alt plist working with rainbow.plist
-        particle.position = sp.position;
-        [self addChild:particle z:20];
-        particle.autoRemoveOnFinish = YES;
+        CCParticleSystemQuad * particleExplode = [CCParticleSystemQuad particleWithFile:@"particle-car-red-explode.plist"]; //alt plist working with rainbow.plist
+        particleExplode.position = sp.position;
+        [self addChild:particleExplode z:20];
+        particleExplode.autoRemoveOnFinish = YES;
     }
     else {
-        CCParticleSystemQuad *particle = [CCParticleSystemQuad particleWithFile:@"particle-car-green-explode.plist"]; //alt plist working with rainbow.plist
-        particle.position = sp.position;
-        [self addChild:particle z:20];
-        particle.autoRemoveOnFinish = YES;
+        CCParticleSystemQuad * particleExplode = [CCParticleSystemQuad particleWithFile:@"particle-car-green-explode.plist"]; //alt plist working with rainbow.plist
+        particleExplode.position = sp.position;
+        [self addChild:particleExplode z:20];
+        particleExplode.autoRemoveOnFinish = YES;
     }
     
     [self removeSprite:sp];
