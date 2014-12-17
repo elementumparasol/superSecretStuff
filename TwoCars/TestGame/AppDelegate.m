@@ -1,3 +1,4 @@
+
 //
 //  AppDelegate.m
 //  TestGame
@@ -8,37 +9,32 @@
 
 #import "cocos2d.h"
 
-#import "AppDelegate.h"
 #import "IntroLayer.h"
 #import "AppManager.h"
+#import "AppDelegate.h"
 
 @implementation MyNavigationController
 
-// The available orientations should be defined in the Info.plist file.
-// And in iOS 6+ only, you can override it in the Root View controller in the "supportedInterfaceOrientations" method.
-// Only valid for iOS 6+. NOT VALID for iOS 4 / 5.
--(NSUInteger)supportedInterfaceOrientations {
-	
-	// iPhone only
-	if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone )
-		return UIInterfaceOrientationMaskPortrait;
-	
-	// iPad only
+-(NSUInteger)supportedInterfaceOrientations
+{
+    if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+    
 	return UIInterfaceOrientationMaskPortrait;
 }
 
-// Supported orientations. Customize it for your own needs
-// Only valid on iOS 4 / 5. NOT VALID for iOS 6.
+
+//iOS < 6
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	// iPhone only
-	if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone )
-		return UIInterfaceOrientationIsLandscape(interfaceOrientation);
-	
-	// iPad only
-	// iPhone only
+    if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+    }
+
 	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
+
 
 // This is needed for iOS4 and iOS5 in order to ensure
 // that the 1st scene has the correct dimensions
@@ -51,26 +47,32 @@
 		[director runWithScene: [IntroLayer scene]];
 	}
 }
+
 @end
 
 
 @implementation AppController
 
-@synthesize window=window_, navController=navController_, director=director_;
+@synthesize window=window_,
+            director=director_,
+            navController=navController_;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	// Create the main window
     [[UIApplication sharedApplication] setStatusBarHidden:YES
                                             withAnimation:UIStatusBarAnimationFade];
+    
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    //add ads stuff
     [RevMobAds startSessionWithAppID:REVMOB_ID];
-    [Chartboost startWithAppId:ChartBoost_APPID
-                  appSignature:ChartBoost_Secret
-                      delegate:nil];
-    NSString* appID = VungleAppId;
-    VungleSDK* sdk = [VungleSDK sharedSDK];
-    [sdk startWithAppId:appID];
+    [Chartboost startWithAppId:ChartBoost_APPID appSignature:ChartBoost_Secret delegate:nil];
+    
+//    NSString* appID = VungleAppId;
+//    VungleSDK* sdk = [VungleSDK sharedSDK];
+//    [sdk startWithAppId:appID];
     
     if([[AppManager AppManagerSharedInstance] IsAppRunningFirstTime]){
     
@@ -79,21 +81,8 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"sound"];
     }
 
-	
-	// CCGLView creation
-	// viewWithFrame: size of the OpenGL view. For full screen use [_window bounds]
-	//  - Possible values: any CGRect
-	// pixelFormat: Format of the render buffer. Use RGBA8 for better color precision (eg: gradients). But it takes more memory and it is slower
-	//	- Possible values: kEAGLColorFormatRGBA8, kEAGLColorFormatRGB565
-	// depthFormat: Use stencil if you plan to use CCClippingNode. Use Depth if you plan to use 3D effects, like CCCamera or CCNode#vertexZ
-	//  - Possible values: 0, GL_DEPTH_COMPONENT24_OES, GL_DEPTH24_STENCIL8_OES
-	// sharegroup: OpenGL sharegroup. Useful if you want to share the same OpenGL context between different threads
-	//  - Possible values: nil, or any valid EAGLSharegroup group
-	// multiSampling: Whether or not to enable multisampling
-	//  - Possible values: YES, NO
-	// numberOfSamples: Only valid if multisampling is enabled
-	//  - Possible values: 0 to glGetIntegerv(GL_MAX_SAMPLES_APPLE)
-	CCGLView *glView = [CCGLView viewWithFrame:[window_ bounds]
+    
+	CCGLView * glView = [CCGLView viewWithFrame:[window_ bounds]
 								   pixelFormat:kEAGLColorFormatRGB565
 								   depthFormat:0
 							preserveBackbuffer:NO
@@ -101,7 +90,7 @@
 								 multiSampling:NO
 							   numberOfSamples:0];
 	
-	director_ = (CCDirectorIOS*) [CCDirector sharedDirector];
+	director_ = (CCDirectorIOS *) [CCDirector sharedDirector];
 	
 	director_.wantsFullScreenLayout = YES;
 	
@@ -133,8 +122,9 @@
 	// On iPhone HD: "-hd"
 	CCFileUtils *sharedFileUtils = [CCFileUtils sharedFileUtils];
 	[sharedFileUtils setEnableFallbackSuffixes:NO];				// Default: NO. No fallback suffixes are going to be used
-	[sharedFileUtils setiPhoneRetinaDisplaySuffix:@"-hd"];		// Default on iPhone RetinaDisplay is "-hd"
+    
 	[sharedFileUtils setiPadSuffix:@"-ipad"];					// Default on iPad is "ipad"
+    [sharedFileUtils setiPhoneRetinaDisplaySuffix:@"-hd"];		// Default on iPhone RetinaDisplay is "-hd"
 	[sharedFileUtils setiPadRetinaDisplaySuffix:@"-ipadhd"];	// Default on iPad RetinaDisplay is "-ipadhd"
 	
 	// Assume that PVR images have premultiplied alpha
@@ -152,9 +142,11 @@
 	
 	// make main window visible
 	[window_ makeKeyAndVisible];
-	[[CCDirector sharedDirector].openGLView setMultipleTouchEnabled:YES];
+	[[CCDirector sharedDirector].view setMultipleTouchEnabled:YES];
+    
 	return YES;
 }
+
 
 // getting a call, pause the game
 -(void) applicationWillResignActive:(UIApplication *)application
@@ -163,27 +155,28 @@
 		[director_ pause];
 }
 
+
 // call got rejected
 -(void) applicationDidBecomeActive:(UIApplication *)application
 {
-    
-    if(![[NSUserDefaults standardUserDefaults]boolForKey:@"removeads"]){
-        if (arc4random()%2==0) {
-            [Chartboost showInterstitial:CBLocationHomeScreen];
-            [[RevMobAds session] showFullscreen];
-        }
-        else{
-            
-            VungleSDK* sdk = [VungleSDK sharedSDK];
-            [sdk playAd:self.window.rootViewController];
-        }
-    }
+    //TODO: detect when show app if it's active
+//    if(![[NSUserDefaults standardUserDefaults]boolForKey:@"removeads"]) {
+//        if(arc4random()%2==0) {
+//            [Chartboost showInterstitial:CBLocationHomeScreen];
+//            [[RevMobAds session] showFullscreen];
+//        }
+//        else{
+//            
+//            VungleSDK* sdk = [VungleSDK sharedSDK];
+//            [sdk playAd:self.window.rootViewController];
+//        }
+//    }
 
-    
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];	
 	if( [navController_ visibleViewController] == director_ )
 		[director_ resume];
 }
+
 
 -(void) applicationDidEnterBackground:(UIApplication*)application
 {
@@ -191,11 +184,13 @@
 		[director_ stopAnimation];
 }
 
+
 -(void) applicationWillEnterForeground:(UIApplication*)application
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ startAnimation];
 }
+
 
 // application will be killed
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -203,17 +198,20 @@
 	CC_DIRECTOR_END();
 }
 
+
 // purge memory
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
 {
 	[[CCDirector sharedDirector] purgeCachedData];
 }
 
+
 // next delta time will be zero
 -(void) applicationSignificantTimeChange:(UIApplication *)application
 {
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 }
+
 
 - (void) dealloc
 {

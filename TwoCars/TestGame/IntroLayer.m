@@ -8,7 +8,6 @@
 
 
 #import "IntroLayer.h"
-#import "GameKitHelper.h"
 #import "HelloWorldLayer.h"
 #import "SimpleAudioEngine.h"
 #import "InAppPurchaseManager.h"
@@ -42,11 +41,11 @@
 }
 
 
--(void)LoadMenu{
-
+-(void)LoadMenu
+{
     BOOL soundBg=[[NSUserDefaults standardUserDefaults] boolForKey:@"soundBg"];
     
-    CCMenuItemImage *item1=[CCMenuItemImage itemWithNormalImage:@"play.png" selectedImage:@"play.png" block:^(id sender) {
+    CCMenuItemImage * startGameButton = [CCMenuItemImage itemWithNormalImage:@"play.png" selectedImage:@"play.png" block:^(id sender) {
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[HelloWorldLayer scene]]];
     }];
     
@@ -82,22 +81,21 @@
         [[InAppPurchaseManager InAppPurchaseManagerSharedInstance] Restore_ProductsWithDelegate:nil WithSelector:nil WithErrorSelector:nil];
     }];
     
-    [item1 retain];
+    [startGameButton retain];
     [item2 retain];
     [item3 retain];
     [item4 retain];
     [item5 retain];
     [item6 retain];
     
-
-        item1.position=ccp(winSize.width*0.5, winSize.height*0.6);
-        item2.position=ccp(winSize.width*0.1, winSize.height*0.4);
-        item3.position=ccp(winSize.width*0.3, winSize.height*0.4);
-        item4.position=ccp(winSize.width*0.5, winSize.height*0.4);
-        item5.position=ccp(winSize.width*0.7, winSize.height*0.4);
-        item6.position=ccp(winSize.width*0.9, winSize.height*0.4);
+    startGameButton.position=ccp(winSize.width*0.5, winSize.height*0.6);
+    item2.position=ccp(winSize.width*0.1, winSize.height*0.4);
+    item3.position=ccp(winSize.width*0.3, winSize.height*0.4);
+    item4.position=ccp(winSize.width*0.5, winSize.height*0.4);
+    item5.position=ccp(winSize.width*0.7, winSize.height*0.4);
+    item6.position=ccp(winSize.width*0.9, winSize.height*0.4);
     
-    CCMenu *menu=[CCMenu menuWithItems:item1,item2,item3,item4,item5,item6, nil];
+    CCMenu *menu=[CCMenu menuWithItems:startGameButton,item2,item3,item4,item5,item6, nil];
     menu.position=ccp(0, 0);
     menu.anchorPoint=ccp(0, 0);
     [self addChild:menu];

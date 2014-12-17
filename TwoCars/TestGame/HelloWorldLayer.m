@@ -11,11 +11,11 @@
 #import "HelloWorldLayer.h"
 
 // Needed to obtain the Navigation Controller
-#import "AppDelegate.h"
 #import "IntroLayer.h"
+#import "AppDelegate.h"
 #import "GameKitHelper.h"
-#import "InAppPurchaseManager.h"
 #import "SimpleAudioEngine.h"
+#import "InAppPurchaseManager.h"
 
 
 #pragma mark - HelloWorldLayer
@@ -25,13 +25,12 @@
 #define index3 2
 #define index4 3
 
-// HelloWorldLayer implementation
+
 @implementation HelloWorldLayer
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
 {
-    
     // 'scene' is an autorelease object.
     CCScene *scene = [CCScene node];
     
