@@ -13,7 +13,6 @@
 // Needed to obtain the Navigation Controller
 #import "IntroLayer.h"
 #import "AppDelegate.h"
-#import "GameKitHelper.h"
 #import "SimpleAudioEngine.h"
 #import "InAppPurchaseManager.h"
 
@@ -25,17 +24,16 @@
 #define index3 2
 #define index4 3
 
-
 @implementation HelloWorldLayer
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
 {
     // 'scene' is an autorelease object.
-    CCScene *scene = [CCScene node];
+    CCScene * scene = [CCScene node];
     
     // 'layer' is an autorelease object.
-    HelloWorldLayer *layer = [HelloWorldLayer node];
+    HelloWorldLayer * layer = [HelloWorldLayer node];
     
     // add layer as a child to scene
     [scene addChild: layer];
@@ -50,7 +48,7 @@
 {
     // always call "super" init
     // Apple recommends to re-assign "self" with the "super's" return value
-    if( (self=[super init]) ) {
+    if((self=[super init])) {
         [[CCDirector sharedDirector].touchDispatcher addStandardDelegate:self priority:0];
         winSize= [[CCDirector sharedDirector] winSize];
         spritesArray=[[NSMutableArray alloc] init];
@@ -59,10 +57,12 @@
         [self schedule:@selector(collisionDetection)];
         isGameOver=NO;
         score=0;
-        
     }
+    
     return self;
 }
+
+
 -(void) onEnter
 {
     [super onEnter];
@@ -70,42 +70,40 @@
     CCLayerColor *colorLayer = [CCLayerColor layerWithColor:color];
     [self addChild:colorLayer z:-1];
 }
--(void)LoadGame{
+
+
+-(void)LoadGame
+{
+    CCSprite * spLeft=[CCSprite spriteWithFile:@"pixel.png"];
+    CCSprite * spRight=[CCSprite spriteWithFile:@"pixel.png"];
+    CCSprite * spCenter=[CCSprite spriteWithFile:@"pixel.png"];
     
-    CCSprite *spCenter=[CCSprite spriteWithFile:@"pixel.png"];
-    CCSprite *spLeft=[CCSprite spriteWithFile:@"pixel.png"];
-    CCSprite *spRight=[CCSprite spriteWithFile:@"pixel.png"];
-    
-    spCenter.position=ccp((winSize.width/2), 0);
     spLeft.position=ccp((winSize.width/4), 0);
+    spCenter.position=ccp((winSize.width/2), 0);
     spRight.position=ccp(((winSize.width/4)*3), 0);
     
-    spCenter.anchorPoint=ccp(0.5, 0);
     spLeft.anchorPoint=ccp(0.5, 0);
     spRight.anchorPoint=ccp(0.5, 0);
+    spCenter.anchorPoint=ccp(0.5, 0);
     
-    
-    spCenter.scaleX=4;
     spLeft.scaleX=2;
     spRight.scaleX=2;
+    spCenter.scaleX=4;
     
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
-    {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         spCenter.scaleY=2*winSize.height;
         spLeft.scaleY=2*winSize.height;
         spRight.scaleY=2*winSize.height;
-    }else{
+    }
+    else {
         spCenter.scaleY=winSize.height;
         spLeft.scaleY=winSize.height;
         spRight.scaleY=winSize.height;
     }
-    
-    
-    
-    
-    [self addChild:spCenter];
+
     [self addChild:spLeft];
     [self addChild:spRight];
+    [self addChild:spCenter];
     
     car1Sp=[CCSprite spriteWithFile:@"car1.png"];
     car2Sp=[CCSprite spriteWithFile:@"car2.png"];
@@ -134,99 +132,97 @@
     particle2.anchorPoint=ccp(0.5, 1);
     particle2.autoRemoveOnFinish = YES;
     
-    
     scoreLabel=[CCLabelTTF labelWithString:@"0" fontName:@"Helvetica" fontSize:30];
     scoreLabel.position=ccp(winSize.width/2, winSize.height*0.9);
     [self addChild:scoreLabel];
-    
-    
 }
--(void)addEnemyAndCoins{
 
+
+-(void)addEnemyAndCoins
+{
     int car1hurdleRand=arc4random()%2;
     int car2hurdleRand=arc4random()%2;
     
-    if (car1hurdleRand) {
-        CCSprite *sp=[CCSprite spriteWithFile:@"square1.png"];
-        if (arc4random()%2){
+    //TODO: update algorithm for generating objects + speed up game using time/distance params
+    if(car1hurdleRand) {
+        CCSprite * sp=[CCSprite spriteWithFile:@"square1.png"];
+        if(arc4random()%2) {
             sp.position=ccp((winSize.width/8)*1, winSize.height);
             sp.anchorPoint=ccp(0.5, 0);
             [self addChild:sp];
             sp.tag=1;
         }
-        else{
+        else {
             sp.position=ccp((winSize.width/8)*3, winSize.height);
             sp.anchorPoint=ccp(0.5, 0);
             [self addChild:sp];
             sp.tag=3;
         }
-        CCMoveBy *move=[CCMoveBy actionWithDuration:2.2 position:ccp(0, -(winSize.height+sp.boundingBox.size.height))];
-        CCSequence *seq=[CCSequence actions:move,[CCCallFuncN actionWithTarget:self selector:@selector(removeSprite:)], nil];
+        CCMoveBy * move=[CCMoveBy actionWithDuration:2.2 position:ccp(0, -(winSize.height+sp.boundingBox.size.height))];
+        CCSequence * seq=[CCSequence actions:move,[CCCallFuncN actionWithTarget:self selector:@selector(removeSprite:)], nil];
         [sp runAction:seq];
         [spritesArray addObject:sp];
-        
     }
-    else{
-        CCSprite *sp=[CCSprite spriteWithFile:@"circle1.png"];
-        if (arc4random()%2){
+    else {
+        CCSprite * sp=[CCSprite spriteWithFile:@"circle1.png"];
+        if(arc4random()%2){
             sp.position=ccp((winSize.width/8)*1, winSize.height);
             sp.anchorPoint=ccp(0.5, 0);
             [self addChild:sp];
             sp.tag=2;
         }
-        else{
+        else {
             sp.position=ccp((winSize.width/8)*3, winSize.height);
             sp.anchorPoint=ccp(0.5, 0);
             [self addChild:sp];
             sp.tag=4;
         }
-        CCMoveBy *move=[CCMoveBy actionWithDuration:2.2 position:ccp(0, -winSize.height)];
-        CCSequence *seq=[CCSequence actions:move,[CCCallFuncN actionWithTarget:self selector:@selector(gameOverWithCircle:)], nil];
+        CCMoveBy * move=[CCMoveBy actionWithDuration:2.2 position:ccp(0, -winSize.height)];
+        CCSequence * seq=[CCSequence actions:move,[CCCallFuncN actionWithTarget:self selector:@selector(gameOverWithCircle:)], nil];
         [sp runAction:seq];
         [spritesArray addObject:sp];
     }
-    
-    if (car2hurdleRand) {
-        CCSprite *sp=[CCSprite spriteWithFile:@"square2.png"];
+    if(car2hurdleRand) {
+        CCSprite * sp=[CCSprite spriteWithFile:@"square2.png"];
         if (arc4random()%2){
             sp.position=ccp((winSize.width/8)*5, winSize.height);
             sp.anchorPoint=ccp(0.5, 0);
             [self addChild:sp];
             sp.tag=5;
         }
-        else{
+        else {
             sp.position=ccp((winSize.width/8)*7, winSize.height);
             sp.anchorPoint=ccp(0.5, 0);
             [self addChild:sp];
             sp.tag=7;
         }
-        CCMoveBy *move=[CCMoveBy actionWithDuration:2.2 position:ccp(0, -(winSize.height+sp.boundingBox.size.height))];
-        CCSequence *seq=[CCSequence actions:move,[CCCallFuncN actionWithTarget:self selector:@selector(removeSprite:)], nil];
+        CCMoveBy * move=[CCMoveBy actionWithDuration:2.2 position:ccp(0, -(winSize.height+sp.boundingBox.size.height))];
+        CCSequence * seq=[CCSequence actions:move,[CCCallFuncN actionWithTarget:self selector:@selector(removeSprite:)], nil];
         [sp runAction:seq];
         [spritesArray addObject:sp];
     }
-    else{
-        CCSprite *sp=[CCSprite spriteWithFile:@"circle2.png"];
+    else {
+        CCSprite * sp=[CCSprite spriteWithFile:@"circle2.png"];
         if (arc4random()%2){
             sp.position=ccp((winSize.width/8)*5, winSize.height);
             sp.anchorPoint=ccp(0.5, 0);
             [self addChild:sp];
             sp.tag=6;
         }
-        else{
+        else {
             sp.position=ccp((winSize.width/8)*7, winSize.height);
             sp.anchorPoint=ccp(0.5, 0);
             [self addChild:sp];
             sp.tag=8;
         }
-        CCMoveBy *move=[CCMoveBy actionWithDuration:2.2 position:ccp(0, -winSize.height)];
-        CCSequence *seq=[CCSequence actions:move,[CCCallFuncN actionWithTarget:self selector:@selector(gameOverWithCircle:)], nil];
+        CCMoveBy * move=[CCMoveBy actionWithDuration:2.2 position:ccp(0, -winSize.height)];
+        CCSequence * seq=[CCSequence actions:move,[CCCallFuncN actionWithTarget:self selector:@selector(gameOverWithCircle:)], nil];
         [sp runAction:seq];
         [spritesArray addObject:sp];
-        
     }
-    
 }
+
+
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
 {
@@ -238,126 +234,140 @@
     [super dealloc];
 }
 
-- (void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+
+- (void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
     
+    //TODO: update touch after game is ended, there's some kind of delay
     if (isGameOver) {
         return;
     }
     
-    UITouch *touch=[touches anyObject];
-    NSArray *objects=[touches allObjects];
+    //TODO: utiilize code for rotation
+    UITouch * touch=[touches anyObject];
+    NSArray * objects=[touches allObjects];
     NSLog(@"%lu",(unsigned long)objects.count);
     CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
-    if (touchLocation.x<winSize.width/2) {
+    if(touchLocation.x<winSize.width/2) {
         NSLog(@"Left");
         [car1Sp stopAllActions];
         if (car1Index==index1) {
             car1Index=index2;
-            CCRotateTo *rotate=[CCRotateTo actionWithDuration:0.1 angle:30];
-            CCMoveTo *move=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*3, 100)];
-            CCMoveTo *move2=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*3, 100-car1Sp.boundingBox.size.height/2)];
+            CCRotateTo * rotate=[CCRotateTo actionWithDuration:0.1 angle:30];
+            CCMoveTo * move=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*3, 100)];
+            CCMoveTo * move2=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*3, 100-car1Sp.boundingBox.size.height/2)];
             [particle runAction:move2];
             [car1Sp runAction:rotate];
-            CCRotateTo *rotate2=[CCRotateTo actionWithDuration:0.1 angle:0];
-            CCSequence *seq=[CCSequence actions:move,rotate2, nil];
+            CCRotateTo * rotate2=[CCRotateTo actionWithDuration:0.1 angle:0];
+            CCSequence * seq=[CCSequence actions:move,rotate2, nil];
             [car1Sp runAction:seq];
         }
         else{
             car1Index=index1;
-            CCRotateTo *rotate=[CCRotateTo actionWithDuration:0.1 angle:-30];
+            CCRotateTo * rotate=[CCRotateTo actionWithDuration:0.1 angle:-30];
             [car1Sp runAction:rotate];
-            CCMoveTo *move=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*1, 100)];
-            CCMoveTo *move2=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*1, 100-car1Sp.boundingBox.size.height/2)];
+            CCMoveTo * move=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*1, 100)];
+            CCMoveTo * move2=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*1, 100-car1Sp.boundingBox.size.height/2)];
             [particle runAction:move2];
-            CCRotateTo *rotate2=[CCRotateTo actionWithDuration:0.1 angle:0];
-            CCSequence *seq=[CCSequence actions:move,rotate2, nil];
+            CCRotateTo * rotate2=[CCRotateTo actionWithDuration:0.1 angle:0];
+            CCSequence * seq=[CCSequence actions:move,rotate2, nil];
             [car1Sp runAction:seq];
         }
-        
     }
-    else{
+    else {
         [car2Sp stopAllActions];
         NSLog(@"Right");
         if (car2Index==index3) {
             car2Index=index4;
-            CCRotateTo *rotate=[CCRotateTo actionWithDuration:0.1 angle:30];
+            CCRotateTo * rotate=[CCRotateTo actionWithDuration:0.1 angle:30];
             [car2Sp runAction:rotate];
-            CCMoveTo *move=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*7, 100)];
-            CCMoveTo *move2=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*7, 100-car1Sp.boundingBox.size.height/2)];
+            CCMoveTo * move=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*7, 100)];
+            CCMoveTo * move2=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*7, 100-car1Sp.boundingBox.size.height/2)];
             [particle2 runAction:move2];
-            CCRotateTo *rotate2=[CCRotateTo actionWithDuration:0.1 angle:0];
-            CCSequence *seq=[CCSequence actions:move,rotate2, nil];
+            CCRotateTo * rotate2=[CCRotateTo actionWithDuration:0.1 angle:0];
+            CCSequence * seq=[CCSequence actions:move,rotate2, nil];
             [car2Sp runAction:seq];
         }
-        else{
+        else {
             car2Index=index3;
-            CCRotateTo *rotate=[CCRotateTo actionWithDuration:0.1 angle:-30];
+            CCRotateTo * rotate=[CCRotateTo actionWithDuration:0.1 angle:-30];
             [car2Sp runAction:rotate];
-            CCMoveTo *move=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*5, 100)];
-            CCMoveTo *move2=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*5, 100-car1Sp.boundingBox.size.height/2)];
+            CCMoveTo * move=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*5, 100)];
+            CCMoveTo * move2=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*5, 100-car1Sp.boundingBox.size.height/2)];
             [particle2 runAction:move2];
-            CCRotateTo *rotate2=[CCRotateTo actionWithDuration:0.1 angle:0];
-            CCSequence *seq=[CCSequence actions:move,rotate2, nil];
+            CCRotateTo * rotate2=[CCRotateTo actionWithDuration:0.1 angle:0];
+            CCSequence * seq=[CCSequence actions:move,rotate2, nil];
             [car2Sp runAction:seq];
         }
     }
     return;
 }
 
--(void)collisionDetection{
 
-    for (CCSprite *sp in spritesArray) {
-        if (sp.position.y>100 && sp.position.y<150) {
-            if (sp.tag==1 && car1Index==index1) {
+-(void)collisionDetection
+{
+    //TODO: add checking for lifes
+    //TODO: utilize removing during collision
+    
+    for(CCSprite * sp in spritesArray) {
+        if(sp.position.y>100 && sp.position.y<150) {
+            if(sp.tag==1 && car1Index==index1) {
                 [self GameOverWithSquareCollision:sp];
                 break;
             }
-            else if(sp.tag==2 && car1Index==index1){
+            else if(sp.tag==2 && car1Index==index1) {
                 [self removeCircleSpriteOnCollision:sp];
                 break;
             }
-            else if(sp.tag==3 && car1Index==index2){
+            else if(sp.tag==3 && car1Index==index2) {
                 [self GameOverWithSquareCollision:sp];
                 break;
             }
-            else if(sp.tag==4 && car1Index==index2){
+            else if(sp.tag==4 && car1Index==index2) {
                 [self removeCircleSpriteOnCollision:sp];
                 break;
             }
-            else if(sp.tag==5 && car2Index==index3){
+            else if(sp.tag==5 && car2Index==index3) {
                 [self GameOverWithSquareCollision:sp];
                 break;
             }
-            
-            else if(sp.tag==6 && car2Index==index3){
+            else if(sp.tag==6 && car2Index==index3) {
                 [self removeCircleSpriteOnCollision:sp];
                 break;
             }
-            
-            else if(sp.tag==7 && car2Index==index4){
+            else if(sp.tag==7 && car2Index==index4) {
                 [self GameOverWithSquareCollision:sp];
                 break;
             }
-            else if(sp.tag==8 && car2Index==index4){
+            else if(sp.tag==8 && car2Index==index4) {
                 [self removeCircleSpriteOnCollision:sp];
                 break;
             }
         }
     }
-    
 }
--(void)removeCircleSpriteOnCollision:(CCSprite*)sp{
-    
+
+
+-(void)removeCircleSpriteOnCollision:(CCSprite*)sp
+{
+    //TODO: update score stuff, more elegant way
     score++;
     scoreLabel.string=[NSString stringWithFormat:@"%d",score];
     [self removeSprite:sp];
 }
--(void)removeSprite:(CCSprite*)sp{
+
+
+-(void)removeSprite:(CCSprite*)sp
+{
     [self removeChild:sp cleanup:YES];
     [spritesArray removeObject:sp];
 }
--(void)gameOverWithCircle:(CCSprite*)sp{
 
+
+-(void)gameOverWithCircle:(CCSprite*)sp
+{
+    //TODO add sound + change action
+    
     for (CCSprite *sp in spritesArray) {
         [sp stopAllActions];
     }
@@ -368,20 +378,25 @@
     id action5=[CCFadeOut actionWithDuration:0.1];
     id action6=[CCDelayTime actionWithDuration:0.1];
     id action7=[CCFadeIn actionWithDuration:0.1];
-    CCSequence *seq=[CCSequence actions:action1,action2,action3,action4,action5,action6,action7,[CCCallFunc actionWithTarget:self selector:@selector(GameOver)], nil];
+    CCSequence * seq=[CCSequence actions:action1,action2,action3,action4,action5,action6,action7,[CCCallFunc actionWithTarget:self selector:@selector(GameOver)], nil];
     [sp runAction:seq];
 }
--(void)GameOverWithSquareCollision:(CCSprite*)sp{
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"sound"])
+
+
+-(void)GameOverWithSquareCollision:(CCSprite*)sp
+{
+    //TODO: update sound + change action
+    
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"sound"])
         [[SimpleAudioEngine sharedEngine] playEffect:@"colide.caf"];
+    
     if (sp.tag<5) {
         CCParticleSystemQuad *particle = [CCParticleSystemQuad particleWithFile:@"particle-car-red-explode.plist"]; //alt plist working with rainbow.plist
         particle.position = sp.position;
         [self addChild:particle z:20];
         particle.autoRemoveOnFinish = YES;
     }
-    else{
-    
+    else {
         CCParticleSystemQuad *particle = [CCParticleSystemQuad particleWithFile:@"particle-car-green-explode.plist"]; //alt plist working with rainbow.plist
         particle.position = sp.position;
         [self addChild:particle z:20];
@@ -390,73 +405,78 @@
     
     [self removeSprite:sp];
     
-    for (CCSprite *sp in spritesArray) {
+    for(CCSprite *sp in spritesArray) {
         [sp stopAllActions];
     }
     
     [self GameOver];
 }
--(void)GameOver{
 
+
+-(void)GameOver
+{
     isGameOver=YES;
     [self stopAllActions];
     [self unscheduleAllSelectors];
     [self LoadMenu];
-    //showmenu
-    
-    
 }
--(void)LoadMenu{
-    
-    if(![[NSUserDefaults standardUserDefaults]boolForKey:@"removeads"]){
-        if (arc4random()%2==0) {
-            [Chartboost showInterstitial:CBLocationHomeScreen];
-            [[RevMobAds session] showFullscreen];
-        }
-        else{
-            AppController *appdelegate=[UIApplication sharedApplication].delegate;
-            VungleSDK* sdk = [VungleSDK sharedSDK];
-            [sdk playAd:appdelegate.window.rootViewController];
-        }
-    }
 
+
+-(void)LoadMenu
+{
+    //TODO: add ads logic here
+//    if(![[NSUserDefaults standardUserDefaults]boolForKey:@"removeads"]) {
+//        if (arc4random()%2==0) {
+//            [Chartboost showInterstitial:CBLocationHomeScreen];
+//            [[RevMobAds session] showFullscreen];
+//        }
+//        else{
+//            AppController *appdelegate=[UIApplication sharedApplication].delegate;
+//            VungleSDK* sdk = [VungleSDK sharedSDK];
+//            [sdk playAd:appdelegate.window.rootViewController];
+//        }
+//    }
+
+    int best= (int)[[NSUserDefaults standardUserDefaults] integerForKey:@"best"];
     
-    int best=[[NSUserDefaults standardUserDefaults] integerForKey:@"best"];
     if (best<score) {
         [[NSUserDefaults standardUserDefaults] setInteger:score forKey:@"best"];
         best=score;
     }
+    
     ccColor4B color = {0,0,0,155};
-    CCLayerColor *colorLayer = [CCLayerColor layerWithColor:color];
+    CCLayerColor * colorLayer = [CCLayerColor layerWithColor:color];
     [self addChild:colorLayer];
     
     scoreLabel.visible=NO;
     
-    CCLabelTTF *gameOverLabel=[CCLabelTTF labelWithString:@"Game Over" fontName:@"Helvetica" fontSize:50];
+    CCLabelTTF * gameOverLabel=[CCLabelTTF labelWithString:@"Game Over" fontName:@"Helvetica" fontSize:50];
     gameOverLabel.position=ccp(winSize.width/2, winSize.height*0.9);
     [self addChild:gameOverLabel];
     
-    CCLabelTTF *scoreLabel1=[CCLabelTTF labelWithString:[NSString stringWithFormat:@"Score   %d\nBest   %d",score,best] fontName:@"Helvetica" fontSize:40];
+    CCLabelTTF * scoreLabel1=[CCLabelTTF labelWithString:[NSString stringWithFormat:@"Score   %d\nBest   %d",score,best] fontName:@"Helvetica" fontSize:40];
     scoreLabel1.position=ccp(winSize.width/2, winSize.height*0.7);
     [self addChild:scoreLabel1];
     
+    BOOL soundBg = [[NSUserDefaults standardUserDefaults] boolForKey:@"soundBg"];
     
-    
-    BOOL soundBg=[[NSUserDefaults standardUserDefaults] boolForKey:@"soundBg"];
-    CCMenuItemImage *item1=[CCMenuItemImage itemWithNormalImage:@"replay.png" selectedImage:@"replay.png" block:^(id sender) {
+    CCMenuItemImage * replayButton = [CCMenuItemImage itemWithNormalImage:@"replay.png" selectedImage:@"replay.png" block:^(id sender) {
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HelloWorldLayer scene] ]];
     }];
-    CCMenuItemImage *item2=[CCMenuItemImage itemWithNormalImage:@"home.png" selectedImage:@"home.png" block:^(id sender) {
+    
+    CCMenuItemImage * homeButton =[CCMenuItemImage itemWithNormalImage:@"home.png" selectedImage:@"home.png" block:^(id sender) {
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[IntroLayer scene] ]];
             }];
-    CCMenuItemImage *item3=[CCMenuItemImage itemWithNormalImage:@"gc.png" selectedImage:@"gc.png" block:^(id sender) {
+    
+    CCMenuItemImage * gameCenterButton =[CCMenuItemImage itemWithNormalImage:@"gc.png" selectedImage:@"gc.png" block:^(id sender) {
         GameKitHelper *gkHelper = [GameKitHelper sharedGameKitHelper];
         gkHelper.delegate = self;
         [gkHelper authenticateLocalPlayer];
         [gkHelper submitScore:[[NSUserDefaults standardUserDefaults] integerForKey:@"best"] category:LeaderboardID];
         [gkHelper showAchievements];
     }];
-    CCMenuItemImage *item4=[CCMenuItemImage itemWithNormalImage:[NSString stringWithFormat:@"share.png"] selectedImage:[NSString stringWithFormat:@"share.png"] block:^(id sender) {
+    
+    CCMenuItemImage * shareButton =[CCMenuItemImage itemWithNormalImage:[NSString stringWithFormat:@"share.png"] selectedImage:[NSString stringWithFormat:@"share.png"] block:^(id sender) {
         [self screenshotWithStartNode:self];
         NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
         NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:@"Image.jpg"];
@@ -474,141 +494,172 @@
         else
             [[[CCDirector sharedDirector] navigationController] presentViewController:activityViewController
                                                                              animated:YES
-                                                                           completion:^{
-                                                                               // ...
-                                                                           }];
+                                                                           completion:^{}];
     }];
-    CCMenuItemImage *item5=[CCMenuItemImage itemWithNormalImage:[NSString stringWithFormat:@"removeads.png"] selectedImage:[NSString stringWithFormat:@"removeads.png",soundBg] block:^(id sender) {
+    
+    CCMenuItemImage * removeAdsButton =[CCMenuItemImage itemWithNormalImage:[NSString stringWithFormat:@"removeads.png"] selectedImage:[NSString stringWithFormat:@"removeads%i.png",soundBg] block:^(id sender) {
         [[InAppPurchaseManager InAppPurchaseManagerSharedInstance] PurchaseProductWithNumber:1 Delegate:nil WithSelector:nil WithErrorSelector:nil];
     }];
     
-    [item1 retain];
-    [item2 retain];
-    [item3 retain];
-    [item4 retain];
-    [item5 retain];
+    [replayButton retain];
+    [homeButton retain];
+    [gameCenterButton retain];
+    [shareButton retain];
+    [removeAdsButton retain];
 
+    replayButton.position=ccp(winSize.width*0.5, winSize.height*0.5);
+    homeButton.position=ccp(winSize.width*0.2, winSize.height*0.3);
+    gameCenterButton.position=ccp(winSize.width*0.4, winSize.height*0.3);
+    shareButton.position=ccp(winSize.width*0.6, winSize.height*0.3);
+    removeAdsButton.position=ccp(winSize.width*0.8, winSize.height*0.3);
     
-    
-    item1.position=ccp(winSize.width*0.5, winSize.height*0.5);
-    item2.position=ccp(winSize.width*0.2, winSize.height*0.3);
-    item3.position=ccp(winSize.width*0.4, winSize.height*0.3);
-    item4.position=ccp(winSize.width*0.6, winSize.height*0.3);
-    item5.position=ccp(winSize.width*0.8, winSize.height*0.3);
-    
-    CCMenu *menu=[CCMenu menuWithItems:item1,item2,item3,item4,item5, nil];
+    CCMenu *menu=[CCMenu menuWithItems:replayButton,homeButton,gameCenterButton,shareButton,removeAdsButton, nil];
     menu.position=ccp(0, 0);
     menu.anchorPoint=ccp(0, 0);
     [self addChild:menu];
-    
-    
-    
 }
 
 
 #pragma mark GameKit delegate
 #pragma mark GameKitHelper delegate methods
+
 -(void) onLocalPlayerAuthenticationChanged
 {
-    GKLocalPlayer* localPlayer = [GKLocalPlayer localPlayer];
+    GKLocalPlayer * localPlayer = [GKLocalPlayer localPlayer];
     CCLOG(@"LocalPlayer isAuthenticated changed to: %@", localPlayer.authenticated ? @"YES" : @"NO");
     
     if (localPlayer.authenticated)
     {
-        GameKitHelper* gkHelper = [GameKitHelper sharedGameKitHelper];
+        GameKitHelper * gkHelper = [GameKitHelper sharedGameKitHelper];
         [gkHelper getLocalPlayerFriends];
         //[gkHelper resetAchievements];
     }
 }
+
+
 -(void) onFriendListReceived:(NSArray*)friends
 {
     CCLOG(@"onFriendListReceived: %@", [friends description]);
-    GameKitHelper* gkHelper = [GameKitHelper sharedGameKitHelper];
+    GameKitHelper * gkHelper = [GameKitHelper sharedGameKitHelper];
     [gkHelper getPlayerInfo:friends];
 }
+
+
 -(void) onPlayerInfoReceived:(NSArray*)players
 {
     CCLOG(@"onPlayerInfoReceived: %@", [players description]);
-    
-    
 }
+
+
 -(void) onScoresSubmitted:(bool)success
 {
     CCLOG(@"onScoresSubmitted: %@", success ? @"YES" : @"NO");
 }
+
+
 -(void) onScoresReceived:(NSArray*)scores
 {
     CCLOG(@"onScoresReceived: %@", [scores description]);
-    GameKitHelper* gkHelper = [GameKitHelper sharedGameKitHelper];
+    GameKitHelper * gkHelper = [GameKitHelper sharedGameKitHelper];
     [gkHelper showAchievements];
 }
+
+
 -(void) onAchievementReported:(GKAchievement*)achievement
 {
     CCLOG(@"onAchievementReported: %@", achievement);
 }
+
+
 -(void) onAchievementsLoaded:(NSDictionary*)achievements
 {
     CCLOG(@"onLocalPlayerAchievementsLoaded: %@", [achievements description]);
 }
+
+
 -(void) onResetAchievements:(bool)success
 {
     CCLOG(@"onResetAchievements: %@", success ? @"YES" : @"NO");
 }
+
+
 -(void) onLeaderboardViewDismissed
 {
     CCLOG(@"onLeaderboardViewDismissed");
     
-    GameKitHelper* gkHelper = [GameKitHelper sharedGameKitHelper];
+    GameKitHelper * gkHelper = [GameKitHelper sharedGameKitHelper];
     [gkHelper retrieveTopTenAllTimeGlobalScores];
 }
+
+
 -(void) onAchievementsViewDismissed
 {
     CCLOG(@"onAchievementsViewDismissed");
 }
+
+
 -(void) onReceivedMatchmakingActivity:(NSInteger)activity
 {
-    CCLOG(@"receivedMatchmakingActivity: %i", activity);
+    CCLOG(@"receivedMatchmakingActivity: %i", (int)activity);
 }
+
+
 -(void) onMatchFound:(GKMatch*)match
 {
     CCLOG(@"onMatchFound: %@", match);
 }
+
+
 -(void) onPlayersAddedToMatch:(bool)success
 {
     CCLOG(@"onPlayersAddedToMatch: %@", success ? @"YES" : @"NO");
 }
+
+
 -(void) onMatchmakingViewDismissed
 {
     CCLOG(@"onMatchmakingViewDismissed");
 }
+
+
 -(void) onMatchmakingViewError
 {
     CCLOG(@"onMatchmakingViewError");
 }
+
+
 -(void) onPlayerConnected:(NSString*)playerID
 {
     CCLOG(@"onPlayerConnected: %@", playerID);
 }
+
+
 -(void) onPlayerDisconnected:(NSString*)playerID
 {
     CCLOG(@"onPlayerDisconnected: %@", playerID);
 }
+
+
 -(void) onStartMatch
 {
     CCLOG(@"onStartMatch");
 }
+
+
 -(void) onReceivedData:(NSData*)data fromPlayer:(NSString*)playerID
 {
     CCLOG(@"onReceivedData: %@ fromPlayer: %@", data, playerID);
 }
+
+
 -(void) screenshotWithStartNode:(CCNode*)stNode
 {
     [CCDirector sharedDirector].nextDeltaTimeZero = YES;
     
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    CCRenderTexture* renTxture =
-    [CCRenderTexture renderTextureWithWidth:winSize.width
-                                     height:winSize.height];
+    CGSize windowsSize = [[CCDirector sharedDirector] winSize];
+    CCRenderTexture * renTxture =
+    [CCRenderTexture renderTextureWithWidth:windowsSize.width
+                                     height:windowsSize.height];
     [renTxture begin];
     [stNode visit];
     [renTxture end];

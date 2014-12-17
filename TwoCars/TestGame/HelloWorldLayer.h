@@ -11,6 +11,7 @@
 #import <GameKit/GameKit.h>
 //#import "AppDelegate.h"2
 // When you import this file, you import all the cocos2d classes
+#import "GameKitHelper.h"
 #import <RevMobAds/RevMobAds.h>
 #import <VungleSDK/VungleSDK.h>
 #import <Chartboost/Chartboost.h>
@@ -18,7 +19,7 @@
 
 
 // HelloWorldLayer
-@interface HelloWorldLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
+@interface HelloWorldLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GameKitHelperProtocol>
 {
     CGSize winSize;
     
