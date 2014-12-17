@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D17CF86D-7CDE-4754-BDC6-C094060C8AB5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TwoCars</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F8D4A21FF4B4C8D8AEF86EC5173E1A6CD0AEE6DC</key>
+		<string>https://github.com/redcirclegame/superSecretStuff.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TwoCars/TwoCars.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F8D4A21FF4B4C8D8AEF86EC5173E1A6CD0AEE6DC</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/redcirclegame/superSecretStuff.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F8D4A21FF4B4C8D8AEF86EC5173E1A6CD0AEE6DC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F8D4A21FF4B4C8D8AEF86EC5173E1A6CD0AEE6DC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>superSecretStuff</string>
+		</dict>
+	</array>
+</dict>
+</plist>
