@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "35CF35701A29B8BF00FA5E18"
-               BuildableName = "Space Dodgers.app"
+               BuildableName = "SDodgers.app"
                BlueprintName = "SDodgers"
                ReferencedContainer = "container:SDodgers.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "35CF35701A29B8BF00FA5E18"
-            BuildableName = "Space Dodgers.app"
+            BuildableName = "SDodgers.app"
             BlueprintName = "SDodgers"
             ReferencedContainer = "container:SDodgers.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "35CF35701A29B8BF00FA5E18"
-            BuildableName = "Space Dodgers.app"
+            BuildableName = "SDodgers.app"
             BlueprintName = "SDodgers"
             ReferencedContainer = "container:SDodgers.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "35CF35701A29B8BF00FA5E18"
-            BuildableName = "Space Dodgers.app"
+            BuildableName = "SDodgers.app"
             BlueprintName = "SDodgers"
             ReferencedContainer = "container:SDodgers.xcodeproj">
          </BuildableReference>
