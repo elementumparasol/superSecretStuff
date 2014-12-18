@@ -121,13 +121,13 @@
     car2Index=index4;
     
     particle = [CCParticleSystemQuad particleWithFile:@"particle-car-red.plist"]; //alt plist working with rainbow.plist
-    particle.position = ccp((winSize.width/4)-(winSize.width/8), 100-car1Sp.boundingBox.size.height/2);
+    particle.position = ccp((winSize.width/4)-(winSize.width/8), 140-car1Sp.boundingBox.size.height/2);
     [self addChild:particle z:20];
     particle.anchorPoint=ccp(0.5, 1);
     particle.autoRemoveOnFinish = YES;
     
     particle2 = [CCParticleSystemQuad particleWithFile:@"particle-car-green.plist"]; //alt plist working with rainbow.plist
-    particle2.position = ccp(winSize.width-(winSize.width/8), 100-car2Sp.boundingBox.size.height/2);
+    particle2.position = ccp(winSize.width-(winSize.width/8), 140-car2Sp.boundingBox.size.height/2);
     [self addChild:particle2 z:20];
     particle2.anchorPoint=ccp(0.5, 1);
     particle2.autoRemoveOnFinish = YES;
@@ -255,7 +255,7 @@
             car1Index=index2;
             CCRotateTo * rotate=[CCRotateTo actionWithDuration:0.1 angle:30];
             CCMoveTo * move=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*3, 100)];
-            CCMoveTo * move2=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*3, 100-car1Sp.boundingBox.size.height/2)];
+            CCMoveTo * move2=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*3, 140-car1Sp.boundingBox.size.height/2)];
             [particle runAction:move2];
             [car1Sp runAction:rotate];
             CCRotateTo * rotate2=[CCRotateTo actionWithDuration:0.1 angle:0];
@@ -267,7 +267,7 @@
             CCRotateTo * rotate=[CCRotateTo actionWithDuration:0.1 angle:-30];
             [car1Sp runAction:rotate];
             CCMoveTo * move=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*1, 100)];
-            CCMoveTo * move2=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*1, 100-car1Sp.boundingBox.size.height/2)];
+            CCMoveTo * move2=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*1, 140-car1Sp.boundingBox.size.height/2)];
             [particle runAction:move2];
             CCRotateTo * rotate2=[CCRotateTo actionWithDuration:0.1 angle:0];
             CCSequence * seq=[CCSequence actions:move,rotate2, nil];
@@ -282,7 +282,7 @@
             CCRotateTo * rotate=[CCRotateTo actionWithDuration:0.1 angle:30];
             [car2Sp runAction:rotate];
             CCMoveTo * move=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*7, 100)];
-            CCMoveTo * move2=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*7, 100-car1Sp.boundingBox.size.height/2)];
+            CCMoveTo * move2=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*7, 140-car1Sp.boundingBox.size.height/2)];
             [particle2 runAction:move2];
             CCRotateTo * rotate2=[CCRotateTo actionWithDuration:0.1 angle:0];
             CCSequence * seq=[CCSequence actions:move,rotate2, nil];
@@ -293,7 +293,7 @@
             CCRotateTo * rotate=[CCRotateTo actionWithDuration:0.1 angle:-30];
             [car2Sp runAction:rotate];
             CCMoveTo * move=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*5, 100)];
-            CCMoveTo * move2=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*5, 100-car1Sp.boundingBox.size.height/2)];
+            CCMoveTo * move2=[CCMoveTo actionWithDuration:0.2 position:ccp((winSize.width/8)*5, 140-car1Sp.boundingBox.size.height/2)];
             [particle2 runAction:move2];
             CCRotateTo * rotate2=[CCRotateTo actionWithDuration:0.1 angle:0];
             CCSequence * seq=[CCSequence actions:move,rotate2, nil];
