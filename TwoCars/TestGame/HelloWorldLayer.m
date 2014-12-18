@@ -455,7 +455,7 @@
     [self addChild:gameOverLabel];
     
     CCLabelTTF * scoreLabel1=[CCLabelTTF labelWithString:[NSString stringWithFormat:@"Score   %d\nBest   %d",score,best] fontName:@"Helvetica" fontSize:40];
-    scoreLabel1.position=ccp(winSize.width - scoreLabel1.dimensions.width - 20, winSize.height*0.7);
+    scoreLabel1.position=ccp(winSize.width/2, winSize.height*0.7);
     [self addChild:scoreLabel1];
     
     BOOL soundBg = [[NSUserDefaults standardUserDefaults] boolForKey:@"soundBg"];

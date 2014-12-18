@@ -14,9 +14,9 @@
 #import <Chartboost/Chartboost.h>
 #import <Foundation/Foundation.h> 
 
-#define BackgroundR 33
-#define BackgroundG 52
-#define BackgroundB 123
+#define BackgroundR 63
+#define BackgroundG 37
+#define BackgroundB 107
 
 #define REVMOB_ID @"5491c9f0a9214f33166dcdc3"
 #define ChartBoost_APPID @"5491cb6f0d6025764b70b1cf"
