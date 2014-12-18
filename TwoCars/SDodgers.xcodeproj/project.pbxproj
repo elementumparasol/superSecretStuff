@@ -196,6 +196,8 @@
 		35EE9F831A2A498500BD0F48 /* restore.png in Resources */ = {isa = PBXBuildFile; fileRef = 35EE9F821A2A498500BD0F48 /* restore.png */; };
 		F5BE2BF01A427635006F89D0 /* car1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BE2BEE1A427635006F89D0 /* car1.png */; };
 		F5BE2BF11A427635006F89D0 /* car2.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BE2BEF1A427635006F89D0 /* car2.png */; };
+		F5BE2BF31A432B25006F89D0 /* GothamLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = F5BE2BF21A432B25006F89D0 /* GothamLight.otf */; };
+		F5BE2BFC1A432DBB006F89D0 /* SDConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BE2BFB1A432DBB006F89D0 /* SDConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -539,6 +541,9 @@
 		35EE9F821A2A498500BD0F48 /* restore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restore.png; sourceTree = "<group>"; };
 		F5BE2BEE1A427635006F89D0 /* car1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car1.png; sourceTree = "<group>"; };
 		F5BE2BEF1A427635006F89D0 /* car2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car2.png; sourceTree = "<group>"; };
+		F5BE2BF21A432B25006F89D0 /* GothamLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamLight.otf; sourceTree = "<group>"; };
+		F5BE2BFA1A432DBB006F89D0 /* SDConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDConstants.h; sourceTree = "<group>"; };
+		F5BE2BFB1A432DBB006F89D0 /* SDConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -640,6 +645,8 @@
 		35CF35881A29B8BF00FA5E18 /* TestGame */ = {
 			isa = PBXGroup;
 			children = (
+				F5BE2BFA1A432DBB006F89D0 /* SDConstants.h */,
+				F5BE2BFB1A432DBB006F89D0 /* SDConstants.m */,
 				35CF37191A29B8C300FA5E18 /* AppDelegate.h */,
 				35CF371A1A29B8C300FA5E18 /* AppDelegate.m */,
 				35CF371C1A29B8C300FA5E18 /* HelloWorldLayer.h */,
@@ -1073,6 +1080,7 @@
 		35CF37151A29B8C300FA5E18 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F5BE2BF21A432B25006F89D0 /* GothamLight.otf */,
 				35CF37161A29B8C300FA5E18 /* Prefix.pch */,
 				35CF37171A29B8C300FA5E18 /* main.m */,
 			);
@@ -1147,6 +1155,7 @@
 				35CF372C1A29C3EA00FA5E18 /* pixel-hd.png in Resources */,
 				35EE9F581A2A006100BD0F48 /* particle-car-green-explode.png in Resources */,
 				35CF37341A29C44B00FA5E18 /* car_2.png in Resources */,
+				F5BE2BF31A432B25006F89D0 /* GothamLight.otf in Resources */,
 				F5BE2BF11A427635006F89D0 /* car2.png in Resources */,
 				35EE9F7A1A2A467700BD0F48 /* rate.png in Resources */,
 				35CF358D1A29B8BF00FA5E18 /* Default@2x.png in Resources */,
@@ -1266,6 +1275,7 @@
 				35CF37181A29B8C300FA5E18 /* main.m in Sources */,
 				35CF36961A29B8C200FA5E18 /* CCTouchHandler.m in Sources */,
 				35CF36101A29B8C100FA5E18 /* CCMotionStreak.m in Sources */,
+				F5BE2BFC1A432DBB006F89D0 /* SDConstants.m in Sources */,
 				35CF368F1A29B8C200FA5E18 /* CCGLView.m in Sources */,
 				35CF36BC1A29B8C200FA5E18 /* CGPointExtension.m in Sources */,
 				35CF35C01A29B8C000FA5E18 /* CCActionPageTurn3D.m in Sources */,

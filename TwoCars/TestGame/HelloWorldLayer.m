@@ -126,7 +126,7 @@
     particle2.anchorPoint=ccp(0.5, 1);
     particle2.autoRemoveOnFinish = YES;
     
-    scoreLabel=[CCLabelTTF labelWithString:@"0" fontName:@"Helvetica" fontSize:30];
+    scoreLabel=[CCLabelTTF labelWithString:@"0" fontName:SDLightFontName fontSize:30];
     scoreLabel.position=ccp(winSize.width - scoreLabel.dimensions.width - 40, winSize.height * 0.9);
     [self addChild:scoreLabel];
 }
@@ -444,11 +444,11 @@
     
     scoreLabel.visible = NO;
     
-    CCLabelTTF * gameOverLabel=[CCLabelTTF labelWithString:@"Game Over" fontName:@"Helvetica" fontSize:50];
+    CCLabelTTF * gameOverLabel=[CCLabelTTF labelWithString:@"Game Over" fontName:SDLightFontName fontSize:50];
     gameOverLabel.position=ccp(winSize.width/2, winSize.height*0.9);
     [self addChild:gameOverLabel];
     
-    CCLabelTTF * scoreLabel1=[CCLabelTTF labelWithString:[NSString stringWithFormat:@"Score   %d\nBest   %d",score,best] fontName:@"Helvetica" fontSize:40];
+    CCLabelTTF * scoreLabel1=[CCLabelTTF labelWithString:[NSString stringWithFormat:@"Score   %d\nBest   %d",score,best] fontName:SDLightFontName fontSize:40];
     scoreLabel1.position=ccp(winSize.width/2, winSize.height*0.7);
     [self addChild:scoreLabel1];
     
