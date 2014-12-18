@@ -217,7 +217,7 @@
 		35783FAF1A2B1378001EACB8 /* bg.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg.caf; sourceTree = "<group>"; };
 		35783FB01A2B1378001EACB8 /* colide.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = colide.caf; sourceTree = "<group>"; };
 		35783FB31A2B1742001EACB8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		35CF35711A29B8BF00FA5E18 /* TwoCars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwoCars.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		35CF35711A29B8BF00FA5E18 /* SDodgers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDodgers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35CF35741A29B8BF00FA5E18 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		35CF35761A29B8BF00FA5E18 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		35CF35781A29B8BF00FA5E18 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -607,7 +607,7 @@
 		35CF35721A29B8BF00FA5E18 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				35CF35711A29B8BF00FA5E18 /* TwoCars.app */,
+				35CF35711A29B8BF00FA5E18 /* SDodgers.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1082,9 +1082,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		35CF35701A29B8BF00FA5E18 /* TwoCars */ = {
+		35CF35701A29B8BF00FA5E18 /* SDodgers */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 35CF37241A29B8C300FA5E18 /* Build configuration list for PBXNativeTarget "TwoCars" */;
+			buildConfigurationList = 35CF37241A29B8C300FA5E18 /* Build configuration list for PBXNativeTarget "SDodgers" */;
 			buildPhases = (
 				35CF356D1A29B8BF00FA5E18 /* Sources */,
 				35CF356E1A29B8BF00FA5E18 /* Frameworks */,
@@ -1094,9 +1094,9 @@
 			);
 			dependencies = (
 			);
-			name = TwoCars;
+			name = SDodgers;
 			productName = TestGame;
-			productReference = 35CF35711A29B8BF00FA5E18 /* TwoCars.app */;
+			productReference = 35CF35711A29B8BF00FA5E18 /* SDodgers.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1114,7 +1114,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 35CF356C1A29B8BF00FA5E18 /* Build configuration list for PBXProject "TwoCars" */;
+			buildConfigurationList = 35CF356C1A29B8BF00FA5E18 /* Build configuration list for PBXProject "SDodgers" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1126,7 +1126,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				35CF35701A29B8BF00FA5E18 /* TwoCars */,
+				35CF35701A29B8BF00FA5E18 /* SDodgers */,
 			);
 		};
 /* End PBXProject section */
@@ -1382,7 +1382,7 @@
 				INFOPLIST_FILE = TestGame/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = TwoCars;
+				PRODUCT_NAME = SDodgers;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -1410,7 +1410,7 @@
 				INFOPLIST_FILE = TestGame/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = TwoCars;
+				PRODUCT_NAME = SDodgers;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1421,7 +1421,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		35CF356C1A29B8BF00FA5E18 /* Build configuration list for PBXProject "TwoCars" */ = {
+		35CF356C1A29B8BF00FA5E18 /* Build configuration list for PBXProject "SDodgers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				35CF37221A29B8C300FA5E18 /* Debug */,
@@ -1430,7 +1430,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		35CF37241A29B8C300FA5E18 /* Build configuration list for PBXNativeTarget "TwoCars" */ = {
+		35CF37241A29B8C300FA5E18 /* Build configuration list for PBXNativeTarget "SDodgers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				35CF37251A29B8C300FA5E18 /* Debug */,

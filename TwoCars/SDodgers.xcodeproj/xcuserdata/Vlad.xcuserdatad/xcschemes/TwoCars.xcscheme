@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "35CF35701A29B8BF00FA5E18"
-               BuildableName = "TwoCars.app"
-               BlueprintName = "TwoCars"
-               ReferencedContainer = "container:TwoCars.xcodeproj">
+               BuildableName = "Space Dodgers.app"
+               BlueprintName = "SDodgers"
+               ReferencedContainer = "container:SDodgers.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "35CF35701A29B8BF00FA5E18"
-            BuildableName = "TwoCars.app"
-            BlueprintName = "TwoCars"
-            ReferencedContainer = "container:TwoCars.xcodeproj">
+            BuildableName = "Space Dodgers.app"
+            BlueprintName = "SDodgers"
+            ReferencedContainer = "container:SDodgers.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "35CF35701A29B8BF00FA5E18"
-            BuildableName = "TwoCars.app"
-            BlueprintName = "TwoCars"
-            ReferencedContainer = "container:TwoCars.xcodeproj">
+            BuildableName = "Space Dodgers.app"
+            BlueprintName = "SDodgers"
+            ReferencedContainer = "container:SDodgers.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "35CF35701A29B8BF00FA5E18"
-            BuildableName = "TwoCars.app"
-            BlueprintName = "TwoCars"
-            ReferencedContainer = "container:TwoCars.xcodeproj">
+            BuildableName = "Space Dodgers.app"
+            BlueprintName = "SDodgers"
+            ReferencedContainer = "container:SDodgers.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
