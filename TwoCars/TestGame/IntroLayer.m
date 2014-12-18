@@ -1,10 +1,3 @@
-//
-//  IntroLayer.m
-//  TestGame
-//
-//  Created by Johnylaughingcor on 4/12/2014.
-//  Copyright Johnylaughingcor 2014. All rights reserved.
-//
 
 
 #import "IntroLayer.h"

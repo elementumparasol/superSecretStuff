@@ -1,9 +1,4 @@
-//
-//  GameKitHelper.h
-//
-//  Created by Steffen Itterheim on 05.10.10.
-//  Copyright 2010 Steffen Itterheim. All rights reserved.
-//
+
 
 #import "cocos2d.h"
 #import <GameKit/GameKit.h>
