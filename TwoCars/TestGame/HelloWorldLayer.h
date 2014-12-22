@@ -34,6 +34,8 @@
     UIPopoverController *popup;
     
     int score;
+    
+    float gameSpeed;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

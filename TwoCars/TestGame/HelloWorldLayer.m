@@ -51,6 +51,7 @@
         [self schedule:@selector(collisionDetection)];
         isGameOver=NO;
         score=0;
+        gameSpeed = 3.0f;
     }
     
     return self;
@@ -152,7 +153,7 @@
             [self addChild:sp];
             sp.tag=3;
         }
-        CCMoveBy * move=[CCMoveBy actionWithDuration:2.2 position:ccp(0, -(winSize.height+sp.boundingBox.size.height))];
+        CCMoveBy * move=[CCMoveBy actionWithDuration:gameSpeed position:ccp(0, -(winSize.height+sp.boundingBox.size.height))]; // speed
         CCSequence * seq=[CCSequence actions:move,[CCCallFuncN actionWithTarget:self selector:@selector(removeSprite:)], nil];
         [sp runAction:seq];
         [spritesArray addObject:sp];
@@ -171,7 +172,7 @@
             [self addChild:sp];
             sp.tag=4;
         }
-        CCMoveBy * move=[CCMoveBy actionWithDuration:2.2 position:ccp(0, -winSize.height)];
+        CCMoveBy * move=[CCMoveBy actionWithDuration:gameSpeed position:ccp(0, -winSize.height)]; // speed
         CCSequence * seq=[CCSequence actions:move,[CCCallFuncN actionWithTarget:self selector:@selector(gameOverWithCircle:)], nil];
         [sp runAction:seq];
         [spritesArray addObject:sp];
@@ -190,7 +191,7 @@
             [self addChild:sp];
             sp.tag=7;
         }
-        CCMoveBy * move=[CCMoveBy actionWithDuration:2.2 position:ccp(0, -(winSize.height+sp.boundingBox.size.height))];
+        CCMoveBy * move=[CCMoveBy actionWithDuration:gameSpeed position:ccp(0, -(winSize.height+sp.boundingBox.size.height))]; // speed
         CCSequence * seq=[CCSequence actions:move,[CCCallFuncN actionWithTarget:self selector:@selector(removeSprite:)], nil];
         [sp runAction:seq];
         [spritesArray addObject:sp];
@@ -209,7 +210,7 @@
             [self addChild:sp];
             sp.tag=8;
         }
-        CCMoveBy * move=[CCMoveBy actionWithDuration:2.2 position:ccp(0, -winSize.height)];
+        CCMoveBy * move=[CCMoveBy actionWithDuration:gameSpeed position:ccp(0, -winSize.height)]; //speed
         CCSequence * seq=[CCSequence actions:move,[CCCallFuncN actionWithTarget:self selector:@selector(gameOverWithCircle:)], nil];
         [sp runAction:seq];
         [spritesArray addObject:sp];
@@ -347,6 +348,10 @@
     //TODO: update score stuff, more elegant way
     score++;
     scoreLabel.string=[NSString stringWithFormat:@"%d",score];
+    
+    if(score % 10 == 0)
+        if(gameSpeed >= 1.0) gameSpeed -= 0.2;
+    
     [self removeSprite:sp];
 }
 
