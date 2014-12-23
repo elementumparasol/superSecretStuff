@@ -162,8 +162,6 @@
 		35CF37281A29C00800FA5E18 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35CF37271A29C00800FA5E18 /* libz.dylib */; };
 		35CF372A1A29C2E400FA5E18 /* pixel.png in Resources */ = {isa = PBXBuildFile; fileRef = 35CF37291A29C2E400FA5E18 /* pixel.png */; };
 		35CF372C1A29C3EA00FA5E18 /* pixel-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 35CF372B1A29C3EA00FA5E18 /* pixel-hd.png */; };
-		35CF37331A29C44B00FA5E18 /* car_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 35CF372D1A29C44B00FA5E18 /* car_1.png */; };
-		35CF37341A29C44B00FA5E18 /* car_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 35CF372E1A29C44B00FA5E18 /* car_2.png */; };
 		35CF37361A29C44B00FA5E18 /* smoke1.png in Resources */ = {isa = PBXBuildFile; fileRef = 35CF37301A29C44B00FA5E18 /* smoke1.png */; };
 		35CF37371A29C44B00FA5E18 /* smoke2.png in Resources */ = {isa = PBXBuildFile; fileRef = 35CF37311A29C44B00FA5E18 /* smoke2.png */; };
 		35EE9F571A2A006100BD0F48 /* particle-car-green-explode.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35EE9F501A2A006100BD0F48 /* particle-car-green-explode.plist */; };
@@ -194,8 +192,8 @@
 		F58005891A4920E4006B7868 /* square1.png in Resources */ = {isa = PBXBuildFile; fileRef = F58005881A4920E4006B7868 /* square1.png */; };
 		F580058B1A4920EC006B7868 /* circle2.png in Resources */ = {isa = PBXBuildFile; fileRef = F580058A1A4920EC006B7868 /* circle2.png */; };
 		F580058D1A4920F0006B7868 /* circle1.png in Resources */ = {isa = PBXBuildFile; fileRef = F580058C1A4920F0006B7868 /* circle1.png */; };
-		F5BE2BF01A427635006F89D0 /* car1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BE2BEE1A427635006F89D0 /* car1.png */; };
-		F5BE2BF11A427635006F89D0 /* car2.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BE2BEF1A427635006F89D0 /* car2.png */; };
+		F58005941A4926F7006B7868 /* car1.png in Resources */ = {isa = PBXBuildFile; fileRef = F58005921A4926F7006B7868 /* car1.png */; };
+		F58005951A4926F7006B7868 /* car2.png in Resources */ = {isa = PBXBuildFile; fileRef = F58005931A4926F7006B7868 /* car2.png */; };
 		F5BE2BF31A432B25006F89D0 /* GothamLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = F5BE2BF21A432B25006F89D0 /* GothamLight.otf */; };
 		F5BE2BFC1A432DBB006F89D0 /* SDConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BE2BFB1A432DBB006F89D0 /* SDConstants.m */; };
 /* End PBXBuildFile section */
@@ -503,8 +501,6 @@
 		35CF37271A29C00800FA5E18 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		35CF37291A29C2E400FA5E18 /* pixel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pixel.png; sourceTree = "<group>"; };
 		35CF372B1A29C3EA00FA5E18 /* pixel-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pixel-hd.png"; sourceTree = "<group>"; };
-		35CF372D1A29C44B00FA5E18 /* car_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car_1.png; sourceTree = "<group>"; };
-		35CF372E1A29C44B00FA5E18 /* car_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car_2.png; sourceTree = "<group>"; };
 		35CF37301A29C44B00FA5E18 /* smoke1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke1.png; sourceTree = "<group>"; };
 		35CF37311A29C44B00FA5E18 /* smoke2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke2.png; sourceTree = "<group>"; };
 		35EE9F501A2A006100BD0F48 /* particle-car-green-explode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "particle-car-green-explode.plist"; sourceTree = "<group>"; };
@@ -539,8 +535,8 @@
 		F58005881A4920E4006B7868 /* square1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square1.png; sourceTree = "<group>"; };
 		F580058A1A4920EC006B7868 /* circle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle2.png; sourceTree = "<group>"; };
 		F580058C1A4920F0006B7868 /* circle1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle1.png; sourceTree = "<group>"; };
-		F5BE2BEE1A427635006F89D0 /* car1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car1.png; sourceTree = "<group>"; };
-		F5BE2BEF1A427635006F89D0 /* car2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car2.png; sourceTree = "<group>"; };
+		F58005921A4926F7006B7868 /* car1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car1.png; sourceTree = "<group>"; };
+		F58005931A4926F7006B7868 /* car2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car2.png; sourceTree = "<group>"; };
 		F5BE2BF21A432B25006F89D0 /* GothamLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamLight.otf; sourceTree = "<group>"; };
 		F5BE2BFA1A432DBB006F89D0 /* SDConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDConstants.h; sourceTree = "<group>"; };
 		F5BE2BFB1A432DBB006F89D0 /* SDConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDConstants.m; sourceTree = "<group>"; };
@@ -703,10 +699,8 @@
 				35CF359F1A29B8BF00FA5E18 /* iTunesArtwork */,
 				35CF37291A29C2E400FA5E18 /* pixel.png */,
 				35CF372B1A29C3EA00FA5E18 /* pixel-hd.png */,
-				35CF372D1A29C44B00FA5E18 /* car_1.png */,
-				35CF372E1A29C44B00FA5E18 /* car_2.png */,
-				F5BE2BEE1A427635006F89D0 /* car1.png */,
-				F5BE2BEF1A427635006F89D0 /* car2.png */,
+				F58005921A4926F7006B7868 /* car1.png */,
+				F58005931A4926F7006B7868 /* car2.png */,
 				F580058A1A4920EC006B7868 /* circle2.png */,
 				F580058C1A4920F0006B7868 /* circle1.png */,
 				35CF37301A29C44B00FA5E18 /* smoke1.png */,
@@ -1154,12 +1148,9 @@
 				35EE9F7B1A2A467700BD0F48 /* share.png in Resources */,
 				35CF372C1A29C3EA00FA5E18 /* pixel-hd.png in Resources */,
 				35EE9F581A2A006100BD0F48 /* particle-car-green-explode.png in Resources */,
-				35CF37341A29C44B00FA5E18 /* car_2.png in Resources */,
 				F5BE2BF31A432B25006F89D0 /* GothamLight.otf in Resources */,
-				F5BE2BF11A427635006F89D0 /* car2.png in Resources */,
 				35EE9F7A1A2A467700BD0F48 /* rate.png in Resources */,
 				35CF358D1A29B8BF00FA5E18 /* Default@2x.png in Resources */,
-				F5BE2BF01A427635006F89D0 /* car1.png in Resources */,
 				35CF35971A29B8BF00FA5E18 /* Icon-Small.png in Resources */,
 				35EE9F5C1A2A006100BD0F48 /* particle-car-red.plist in Resources */,
 				35EE9F5B1A2A006100BD0F48 /* particle-car-red-explode.png in Resources */,
@@ -1183,14 +1174,15 @@
 				35EE9F771A2A467700BD0F48 /* music0.png in Resources */,
 				35783F9F1A2B0D55001EACB8 /* vg_mute_off.png in Resources */,
 				35783FA11A2B0D55001EACB8 /* vg_timer.png in Resources */,
+				F58005941A4926F7006B7868 /* car1.png in Resources */,
 				35CF37361A29C44B00FA5E18 /* smoke1.png in Resources */,
-				35CF37331A29C44B00FA5E18 /* car_1.png in Resources */,
 				35EE9F7C1A2A467700BD0F48 /* volume0.png in Resources */,
 				35783FB11A2B1378001EACB8 /* bg.caf in Resources */,
 				F58005891A4920E4006B7868 /* square1.png in Resources */,
 				35EE9F571A2A006100BD0F48 /* particle-car-green-explode.plist in Resources */,
 				35EE9F761A2A467700BD0F48 /* home.png in Resources */,
 				35EE9F781A2A467700BD0F48 /* music1.png in Resources */,
+				F58005951A4926F7006B7868 /* car2.png in Resources */,
 				35EE9F791A2A467700BD0F48 /* play.png in Resources */,
 				F58005871A4920DF006B7868 /* square2.png in Resources */,
 				35CF358F1A29B8BF00FA5E18 /* Default-568h@2x.png in Resources */,

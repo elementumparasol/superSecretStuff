@@ -116,13 +116,13 @@
     car2Index=index4;
     
     particle = [CCParticleSystemQuad particleWithFile:@"particle-car-red.plist"]; //alt plist working with rainbow.plist
-    particle.position = ccp((winSize.width/4)-(winSize.width/8), 140-car1Sp.boundingBox.size.height/2);
+    particle.position = ccp((winSize.width/4)-(winSize.width/8), 135-car1Sp.boundingBox.size.height/2);
     [self addChild:particle z:20];
     particle.anchorPoint=ccp(0.5, 1);
     particle.autoRemoveOnFinish = YES;
     
     particle2 = [CCParticleSystemQuad particleWithFile:@"particle-car-green.plist"]; //alt plist working with rainbow.plist
-    particle2.position = ccp(winSize.width-(winSize.width/8), 140-car2Sp.boundingBox.size.height/2);
+    particle2.position = ccp(winSize.width-(winSize.width/8), 135-car2Sp.boundingBox.size.height/2);
     [self addChild:particle2 z:20];
     particle2.anchorPoint=ccp(0.5, 1);
     particle2.autoRemoveOnFinish = YES;
