@@ -26,7 +26,7 @@
         [self LoadGame];
         [self LoadMenu];
         if([[NSUserDefaults standardUserDefaults] boolForKey:@"soundBg"]) {
-            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"bg.caf"];
+            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"menu.mp3"];
         }
 	}
 	

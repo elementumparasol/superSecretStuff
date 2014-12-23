@@ -52,6 +52,9 @@
         isGameOver=NO;
         score=0;
         gameSpeed = 3.0f;
+        if([[NSUserDefaults standardUserDefaults] boolForKey:@"soundBg"]) {
+            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"game-start.mp3"];
+        }
     }
     
     return self;
@@ -350,7 +353,9 @@
     scoreLabel.string=[NSString stringWithFormat:@"%d",score];
     
     if(score % 10 == 0)
-        if(gameSpeed >= 1.0) gameSpeed -= 0.2;
+        if(gameSpeed >= 1.0) gameSpeed -= 0.3;
+    if(score % 15 == 0)
+        if(gameSpeed >= 1.0) gameSpeed -= 0.1;
     
     [self removeSprite:sp];
 }

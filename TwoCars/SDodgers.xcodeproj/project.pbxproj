@@ -22,7 +22,6 @@
 		35783FA81A2B0DE5001EACB8 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35783FA71A2B0DE5001EACB8 /* AdSupport.framework */; };
 		35783FAA1A2B0E3A001EACB8 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35783FA91A2B0E3A001EACB8 /* libsqlite3.dylib */; };
 		35783FAC1A2B0EBF001EACB8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35783FAB1A2B0EBF001EACB8 /* CoreMedia.framework */; };
-		35783FB11A2B1378001EACB8 /* bg.caf in Resources */ = {isa = PBXBuildFile; fileRef = 35783FAF1A2B1378001EACB8 /* bg.caf */; };
 		35783FB21A2B1378001EACB8 /* colide.caf in Resources */ = {isa = PBXBuildFile; fileRef = 35783FB01A2B1378001EACB8 /* colide.caf */; };
 		35783FB41A2B1742001EACB8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35783FB31A2B1742001EACB8 /* Images.xcassets */; };
 		35CF35751A29B8BF00FA5E18 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35CF35741A29B8BF00FA5E18 /* QuartzCore.framework */; };
@@ -194,6 +193,8 @@
 		F580058D1A4920F0006B7868 /* circle1.png in Resources */ = {isa = PBXBuildFile; fileRef = F580058C1A4920F0006B7868 /* circle1.png */; };
 		F58005941A4926F7006B7868 /* car1.png in Resources */ = {isa = PBXBuildFile; fileRef = F58005921A4926F7006B7868 /* car1.png */; };
 		F58005951A4926F7006B7868 /* car2.png in Resources */ = {isa = PBXBuildFile; fileRef = F58005931A4926F7006B7868 /* car2.png */; };
+		F58005981A49C499006B7868 /* game-start.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F58005961A49C499006B7868 /* game-start.mp3 */; };
+		F58005991A49C499006B7868 /* menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F58005971A49C499006B7868 /* menu.mp3 */; };
 		F5BE2BF31A432B25006F89D0 /* GothamLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = F5BE2BF21A432B25006F89D0 /* GothamLight.otf */; };
 		F5BE2BFC1A432DBB006F89D0 /* SDConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BE2BFB1A432DBB006F89D0 /* SDConstants.m */; };
 /* End PBXBuildFile section */
@@ -214,7 +215,6 @@
 		35783FA71A2B0DE5001EACB8 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		35783FA91A2B0E3A001EACB8 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		35783FAB1A2B0EBF001EACB8 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		35783FAF1A2B1378001EACB8 /* bg.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg.caf; sourceTree = "<group>"; };
 		35783FB01A2B1378001EACB8 /* colide.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = colide.caf; sourceTree = "<group>"; };
 		35783FB31A2B1742001EACB8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		35CF35711A29B8BF00FA5E18 /* SDodgers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDodgers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -537,6 +537,8 @@
 		F580058C1A4920F0006B7868 /* circle1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle1.png; sourceTree = "<group>"; };
 		F58005921A4926F7006B7868 /* car1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car1.png; sourceTree = "<group>"; };
 		F58005931A4926F7006B7868 /* car2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car2.png; sourceTree = "<group>"; };
+		F58005961A49C499006B7868 /* game-start.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "game-start.mp3"; sourceTree = "<group>"; };
+		F58005971A49C499006B7868 /* menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu.mp3; sourceTree = "<group>"; };
 		F5BE2BF21A432B25006F89D0 /* GothamLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamLight.otf; sourceTree = "<group>"; };
 		F5BE2BFA1A432DBB006F89D0 /* SDConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDConstants.h; sourceTree = "<group>"; };
 		F5BE2BFB1A432DBB006F89D0 /* SDConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDConstants.m; sourceTree = "<group>"; };
@@ -657,7 +659,8 @@
 				35EE9F651A2A458B00BD0F48 /* Reachability.m */,
 				35EE9F671A2A45A200BD0F48 /* AppManager.h */,
 				35EE9F681A2A45A200BD0F48 /* AppManager.m */,
-				35783FAF1A2B1378001EACB8 /* bg.caf */,
+				F58005961A49C499006B7868 /* game-start.mp3 */,
+				F58005971A49C499006B7868 /* menu.mp3 */,
 				35783FB01A2B1378001EACB8 /* colide.caf */,
 				35783F931A2B0D55001EACB8 /* VungleSDK.embeddedframework */,
 				35783F8F1A2B0D36001EACB8 /* Chartboost.framework */,
@@ -1141,6 +1144,7 @@
 				35EE9F591A2A006100BD0F48 /* particle-car-green.plist in Resources */,
 				35783FB41A2B1742001EACB8 /* Images.xcassets in Resources */,
 				35CF37371A29C44B00FA5E18 /* smoke2.png in Resources */,
+				F58005991A49C499006B7868 /* menu.mp3 in Resources */,
 				35CF359B1A29B8BF00FA5E18 /* Icon.png in Resources */,
 				35CF36F91A29B8C300FA5E18 /* ChangeLog in Resources */,
 				35783F9D1A2B0D55001EACB8 /* vg_close.png in Resources */,
@@ -1177,8 +1181,8 @@
 				F58005941A4926F7006B7868 /* car1.png in Resources */,
 				35CF37361A29C44B00FA5E18 /* smoke1.png in Resources */,
 				35EE9F7C1A2A467700BD0F48 /* volume0.png in Resources */,
-				35783FB11A2B1378001EACB8 /* bg.caf in Resources */,
 				F58005891A4920E4006B7868 /* square1.png in Resources */,
+				F58005981A49C499006B7868 /* game-start.mp3 in Resources */,
 				35EE9F571A2A006100BD0F48 /* particle-car-green-explode.plist in Resources */,
 				35EE9F761A2A467700BD0F48 /* home.png in Resources */,
 				35EE9F781A2A467700BD0F48 /* music1.png in Resources */,
