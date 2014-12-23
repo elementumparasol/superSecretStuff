@@ -97,7 +97,7 @@
     
     [self addChild:menu];
     
-    CCLabelTTF * gameOverLabel = [CCLabelTTF labelWithString:@"2 Spaceships" fontName:@"Helvetica" fontSize:50];
+    CCLabelTTF * gameOverLabel = [CCLabelTTF labelWithString:@"Space\nDodgers" fontName:SDLightFontName fontSize:50];
     gameOverLabel.position=ccp(winSize.width/2, winSize.height*0.9);
     [self addChild:gameOverLabel];
 }
